@@ -10,7 +10,7 @@ import './App.css';
 import { GithubIcon } from './GithubIcon';
 import { randomString, waitTimeout } from './utils';
 
-const icons = [`🎨`, `🌈`, `⚙️`, `💻`, `📚`, `🐯`, `🐤`, `🐼`, `🐏`, `🍀`];
+const icons = [`🤴`, `🧟‍♂️`, `👩‍💻`, `💻`, ``, `👱‍♂️`, ``🧔, `👶`, `🐏`, `🛀`];
 
 // 最大关卡
 const maxLevel = 50;
@@ -77,7 +77,7 @@ const makeScene: (level: number) => Scene = (level) => {
     return scene;
 };
 
-// 洗牌
+// 洗倪
 const washScene: (level: number, scene: Scene) => Scene = (level, scene) => {
     const updateScene = scene.slice().sort(() => Math.random() - 0.5);
     const offsetPool = [0, 25, -25, 50, -50].slice(0, 1 + level);
@@ -221,7 +221,7 @@ const App: FC = () => {
         setScene(updateScene);
     };
 
-    // 弹出
+    // 弹倪
     const pop = () => {
         if (!queue.length) return;
         const updateQueue = queue.slice();
@@ -237,7 +237,7 @@ const App: FC = () => {
         }
     };
 
-    // 撤销
+    // 撤倪
     const undo = () => {
         if (!queue.length) return;
         const updateQueue = queue.slice();
@@ -251,7 +251,7 @@ const App: FC = () => {
         }
     };
 
-    // 洗牌
+    // 洗倪
     const wash = () => {
         checkCover(washScene(level, scene));
     };
@@ -305,7 +305,7 @@ const App: FC = () => {
 
         const filterSame = updateQueue.filter((sb) => sb.icon === symbol.icon);
 
-        // 三连了
+        // 再约一次
         if (filterSame.length === 3) {
             updateQueue = updateQueue.filter((sb) => sb.icon !== symbol.icon);
             for (const sb of filterSame) {
@@ -347,7 +347,7 @@ const App: FC = () => {
 
     return (
         <>
-            <h2>有解的羊了个羊(DEMO)</h2>
+            <h2>有解的倪了个超(DEMO)</h2>
             <h6>
                 <GithubIcon />
             </h6>
@@ -377,16 +377,16 @@ const App: FC = () => {
             <div className="queue-container flex-container flex-center" />
             <div className="flex-container flex-between">
                 <button className="flex-grow" onClick={pop}>
-                    弹出
+                    弹倪
                 </button>
                 <button className="flex-grow" onClick={undo}>
-                    撤销
+                    撤倪
                 </button>
                 <button className="flex-grow" onClick={wash}>
-                    洗牌
+                    洗倪
                 </button>
                 <button className="flex-grow" onClick={levelUp}>
-                    下一关
+                    下一个
                 </button>
                 {/*<button onClick={test}>测试</button>*/}
             </div>
@@ -400,7 +400,7 @@ const App: FC = () => {
             {finished && (
                 <div className="modal">
                     <h1>{tipText}</h1>
-                    <button onClick={restart}>再来一次</button>
+                    <button onClick={restart}>再约一次</button>
                 </div>
             )}
 
