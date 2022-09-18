@@ -7,7 +7,7 @@ export const GithubIcon: FC = () => {
             target="_blank"
             rel="noreferrer"
         >
-            点个✨不迷路 @StreakingMan
+            倪了个超   @可以约的倪
             <svg
                 height="24"
                 aria-hidden="true"
